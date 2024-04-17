@@ -1,0 +1,5 @@
+discord.py==2.3.2
+configparser==7.0.0
+newsapi-python==0.2.6
+youtube-dl==2021.12.17
+requests==2.26.0
