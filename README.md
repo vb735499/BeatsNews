@@ -21,8 +21,8 @@ BeatsNews will provide you music stream on voice channel,  music recommend from 
 # Requirements
 python >= 3.8.12  
 ## API Keys you need to create
-[Discord Developer](https://discord.com/developers/applications?new_application=true): Go to discord developer page and creat a new application for bot. And you need generate `access_token` / `secret` two different token to access the bot application.
-[News API](https://newsapi.org/): Go to Newsapi.org website to generate you own api key to access the news delivery service.
+[Discord Developer](https://discord.com/developers/applications?new_application=true): Go to discord developer page and creat a new application for bot. And you need generate `access_token` / `secret` two different token to access the bot application.  
+[News API](https://newsapi.org/): Go to Newsapi.org website to generate you own api key to access the news delivery service.  
 [KKBOX OpenAPI](https://developer.kkbox.com/#/signin): Go to developer.kkbox.com to generate a new `Clinet_id` and `Client_secret`.  
-*Note: Remember to keep those keys/ids, we will used in later.*
+*Note: Remember to keep those keys/ids, we will used in later.*  
 
