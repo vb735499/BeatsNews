@@ -23,6 +23,11 @@ def get_token():
     token = config.get('discord', 'access_token')
     return token
 
+def get_channel_id():
+    global config
+    channel_id = config.get('discord', 'reply_channel')
+    return int(channel_id)
+    
 def get_information():
     global tree, client
     return tree, client
@@ -138,8 +143,8 @@ class agentClient(discord.Client):
             self.synced = False
         print("start catch information.")
         self.update_members.start()
-        channel_id = int(config.get('discord', 'reply_channel'))
-        channel = self.get_channel(channel_id) 
+        
+        channel = self.get_channel(get_channel_id()) 
         Online_Message = f'Hi! 我上線了 {self.user}'
         print(channel,  Online_Message)
         await channel.send(Online_Message)
@@ -147,9 +152,8 @@ class agentClient(discord.Client):
     async def on_presence_update(self, before, after):
         emojis = random_choice()
         self.members[after.name] = after
-        channel_id = int(config.get('discord', 'reply_channel'))
         if before.status is discord.Status.offline and after.status is discord.Status.online:
-            channel = client.get_channel(channel_id)  # notification
+            channel = client.get_channel(get_channel_id())  # notification
             message = await channel.send(f'{after.name} 現在上線拉!')
             # await message.add_reaction("<:pokemonguakeda:987375184593948692>")
             for emoji in emojis.split(' '):
@@ -158,7 +162,7 @@ class agentClient(discord.Client):
                 await message.add_reaction(emoji)
 
         if before.status is discord.Status.online and after.status is discord.Status.offline:
-            channel = client.get_channel(channel_id)  # notification channel
+            channel = client.get_channel(get_channel_id())  # notification channel
             message = await channel.send(f'{after.name} 不~不要走 TAT!')
             await message.add_reaction("<:shark02:892762787066044416>")
 
