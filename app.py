@@ -138,7 +138,7 @@ async def music_loop():
         'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5',
         'options': '-vn'
     }
-    textChannel = client.get_channel("Please replace this space to your message channel id (digital)")
+    textChannel = client.get_channel(get_channel_id())
 
     for voice in client.voice_clients:
         if len(music_list[str(voice.guild.id)]) > 0 and not voice.is_playing():
